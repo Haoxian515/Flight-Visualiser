@@ -33,15 +33,24 @@
         #map {
             width: inherit;
             height: inherit;
-            position: fixed !important;
+            /* position: fixed !important; */
+            position: absolute;
             outline: none;
+            top: 0;
+            z-index: -1;
+        }
+
+        #select-options{
+            position: absolute;
+            z-index: 1;
+            right:0
         }
 
     </style>
 </head>
 <body>
 
-<div id="map" style="top: 20px"></div>
+<div id="map" style=""></div>
 
 <div id="select-options">
     <select id="quarter" name="quarter" style="">
@@ -53,7 +62,6 @@
     <select id="origins" name="origin" style="">
         
     </select>
-     -->
      </div>
 
 </form>

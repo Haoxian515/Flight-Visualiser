@@ -82,12 +82,13 @@ function reloadMap(map, coords){
 function drawMarkers(map, markerCoords){
     setTimeout(function(){
         // var marker = L.marker([36.2744, -119.7751]).addTo(map);
-
+        
         markerCoords.forEach( function(arr){
             var marker = L.marker([ arr[1]["lat"], arr[1]["lng"] ])
             // marker.bindPopup(arr[0]).openPopup();
+            console.log(arr)
             pricePopup = "$" + arr[0].toString() +
-                         "\n" + "Destination: Hello"
+                         "\n" + "Destination: " + arr[1]["destination"]
             marker.bindPopup(pricePopup).openPopup();
             marker.addTo(map)
 
@@ -128,7 +129,7 @@ function getFlaskData(map, jsonObj){
 }
 
 //DOCUMENT READY
-$(function () {
+$(function () { 
 
     var map = L.map('map').setView([39.927, -92.861], 4);
 
