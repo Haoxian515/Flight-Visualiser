@@ -159,8 +159,8 @@ var Bezier = L.Path.extend({
         var r2 = r / 2 / Math.cos(thetaOffset),
             theta2 = theta + thetaOffset;
 
-        var midpointX = r2 * Math.cos(theta2) + latlng1.lng,
-            midpointY = r2 * Math.sin(theta2) + latlng1.lat;
+        var midpointX = r2/4 * Math.cos(theta2) + latlng1.lng,
+            midpointY = r2/4 * Math.sin(theta2) + latlng1.lat;
 
         var midpointLatLng = [midpointY, midpointX];
 

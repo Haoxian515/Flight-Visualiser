@@ -134,6 +134,8 @@ $(function () {
     var map = L.map('map').setView([39.927, -92.861], 4);
 
     map.scrollWheelZoom.disable();
+    map.dragging.disable();
+
     map.on('zoomend', function() {
         getFlaskData(map, testingObj)
     });
