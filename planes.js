@@ -1,7 +1,7 @@
 //No module env variables hack
 
 // let host = "http://localhost:5000/"
-let host = "https://flights-visualiser-api.herokuapp.com"
+let host = "https://flights-visualiser-api.herokuapp.com/"
 
 
 $( document ).ready(function() {
