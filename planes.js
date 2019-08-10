@@ -1,3 +1,9 @@
+//No module env variables hack
+
+// let host = "http://localhost:5000/"
+let host = "https://flights-visualiser-api.herokuapp.com"
+
+
 $( document ).ready(function() {
 
     // Loop to get Quarters
@@ -101,7 +107,7 @@ function drawMarkers(map, markerCoords){
 function getFlaskData(map, jsonObj){
     $.ajax({
         type:"POST",    
-        url: "http://localhost:5000/test",
+        url: host + "test",
         contentType: 'application/json;charset=UTF-8',
         data: JSON.stringify(jsonObj),
         success: function(result, status){
@@ -113,7 +119,7 @@ function getFlaskData(map, jsonObj){
         complete: function(){
             $.ajax({
                 type:"POST",    
-                url: "http://localhost:5000/get_prices",
+                url: host + "get_prices",
                 contentType: 'application/json;charset=UTF-8',
                 data: JSON.stringify(jsonObj),
                 success: function(result, status){
@@ -131,16 +137,22 @@ function getFlaskData(map, jsonObj){
 //DOCUMENT READY
 $(function () { 
 
-    var map = L.map('map').setView([39.927, -92.861], 4);
+    var map = L.map('map', { zoomControl:false }).setView([38.227, -94.861], 5);
 
     map.scrollWheelZoom.disable();
     map.dragging.disable();
+    map.touchZoom.disable();
+    map.doubleClickZoom.disable();
+    map.boxZoom.disable();
+    map.keyboard.disable();
 
     map.on('zoomend', function() {
-        getFlaskData(map, testingObj)
+        // getFlaskData(map, testingObj)
+        console.log("ZOOM END")
     });
     map.on('moveend', function() {
-        getFlaskData(map, testingObj)
+        // getFlaskData(map, testingObj)
+        console.log("MOVE END")
     });
     
 
@@ -160,8 +172,8 @@ $(function () {
     L.bezier({
         path: [
             [
-                {lat: 40.123, lng: -74.7718, slide: 'LEFT_ROUND'},//NYC
-                {lat: 36.2744, lng: -119.7751,slide: 'LEFT_ROUND'},//CA
+                // {lat: 40.123, lng: -74.7718, slide: 'LEFT_ROUND'},//NYC
+                // {lat: 36.2744, lng: -119.7751,slide: 'LEFT_ROUND'},//CA
                 // {lat: 36.2048, lng: 138.2529}//Japan
             ]
         ],
